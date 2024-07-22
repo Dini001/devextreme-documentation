@@ -1,4 +1,4 @@
-The TextArea raises four keyboard events: [keyDown](/api-reference/10%20UI%20Components/dxTextEditor/4%20Events/keyDown.md '/Documentation/ApiReference/UI_Components/dxTextArea/Events/#keyDown'), [keyUp](/api-reference/10%20UI%20Components/dxTextEditor/4%20Events/keyUp.md '/Documentation/ApiReference/UI_Components/dxTextArea/Events/#keyUp') and [enterKey](/api-reference/10%20UI%20Components/dxTextEditor/4%20Events/enterKey.md '/Documentation/ApiReference/UI_Components/dxTextArea/Events/#enterKey'). Within the functions that handle them, you can access the original keyboard events. If you are _not_ going to change the functions during the lifetime of the UI component, assign them to the respective UI component properties.
+The TextArea raises four keyboard events: [keyDown](/api-reference/10%20UI%20Components/dxTextEditor/4%20Events/keyDown.md '/Documentation/ApiReference/UI_Components/dxTextArea/Events/#keyDown'), [keyUp](/api-reference/10%20UI%20Components/dxTextEditor/4%20Events/keyUp.md '/Documentation/ApiReference/UI_Components/dxTextArea/Events/#keyUp'), [input](/api-reference/10%20UI%20Components/dxTextEditor/4%20Events/input.md '/Documentation/ApiReference/UI_Components/dxTextArea/Events/#input') and [enterKey](/api-reference/10%20UI%20Components/dxTextEditor/4%20Events/enterKey.md '/Documentation/ApiReference/UI_Components/dxTextArea/Events/#enterKey'). Within the functions that handle them, you can access the original keyboard events. If you are _not_ going to change the functions during the lifetime of the UI component, assign them to the respective UI component properties.
 
 ---
 ##### jQuery
@@ -10,6 +10,10 @@ The TextArea raises four keyboard events: [keyDown](/api-reference/10%20UI%20Com
                 // Event handling commands go here
             },
             onKeyUp: function (e) {
+                const keyCode = e.event.key;
+                // Event handling commands go here
+            },
+            onInput: function (e) {
                 const keyCode = e.event.key;
                 // Event handling commands go here
             },
@@ -25,6 +29,7 @@ The TextArea raises four keyboard events: [keyDown](/api-reference/10%20UI%20Com
     <dx-text-area
         (onKeyDown)="onKeyDown($event)"
         (onKeyUp)="onKeyUp($event)"
+        (onInput)="onInput($event)"
         (onEnterKey)="onEnterKey($event)">
     </dx-text-area>
 
@@ -40,6 +45,10 @@ The TextArea raises four keyboard events: [keyDown](/api-reference/10%20UI%20Com
             const keyCode = e.event.key;
             // Event handling commands go here
         }
+        onInput: function (e) {
+            const keyCode = e.event.key;
+            // Event handling commands go here
+        },
         onEnterKey (e) {
             // Event handling commands go here
         }
@@ -58,6 +67,7 @@ The TextArea raises four keyboard events: [keyDown](/api-reference/10%20UI%20Com
         <DxTextArea
             @key-down="onKeyDown"
             @key-up="onKeyUp"
+            @input="onInput"
             @enter-key="onEnterKey"
         />
     </template>
@@ -76,6 +86,10 @@ The TextArea raises four keyboard events: [keyDown](/api-reference/10%20UI%20Com
                 // Event handling commands go here
             },
             onKeyUp(e) {
+                const keyCode = e.event.key;
+                // Event handling commands go here
+            },
+            onInput(e) {
                 const keyCode = e.event.key;
                 // Event handling commands go here
             },
@@ -99,6 +113,7 @@ The TextArea raises four keyboard events: [keyDown](/api-reference/10%20UI%20Com
                 <TextArea
                     onKeyDown={this.onKeyDown}
                     onKeyUp={this.onKeyUp}
+                    onInput={this.onInput}
                     onEnterKey={this.onEnterKey}
                 />
             );
@@ -109,6 +124,10 @@ The TextArea raises four keyboard events: [keyDown](/api-reference/10%20UI%20Com
             // Event handling commands go here
         }
         onKeyUp(e) {
+            const keyCode = e.event.key;
+            // Event handling commands go here
+        }
+        onInput(e) {
             const keyCode = e.event.key;
             // Event handling commands go here
         }
